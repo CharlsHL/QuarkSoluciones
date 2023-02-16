@@ -1,3 +1,4 @@
+using Modelos.Helpers;
 using Modelos.Modelos;
 
 namespace Quark
@@ -5,9 +6,11 @@ namespace Quark
     public partial class Main : Form
     {
         Controladores.MainController controller = new Controladores.MainController();
-
+        RopaSeleccionada seleccionada;
         Tienda tienda;
         Vendedor vendedor;
+        decimal precioUnitario = 0;
+        int stock = 0;  
 
         public Main()
         {
@@ -44,7 +47,7 @@ namespace Quark
 
         private void rbCamisa_CheckedChanged(object sender, EventArgs e)
         {
-            int stock = 0;
+            stock = 0;
             foreach (var camisa in tienda.Camisas)
             {
                 stock += camisa.Stock;
@@ -56,7 +59,7 @@ namespace Quark
         private void cbMangaCorta_CheckedChanged(object sender, EventArgs e)
         {
 
-            int stock = 0;
+             stock = 0;
             foreach (var camisa in tienda.Camisas)
             {
                 if(camisa.tipoManga == "Manga Corta")
@@ -64,12 +67,13 @@ namespace Quark
             }
 
             lbCantidadStock.Text = stock.ToString();
+            seleccionada =  RopaSeleccionada.CamisaMangaCorta;
 
         }
 
         private void cbCuelloMao_CheckedChanged(object sender, EventArgs e)
         {
-            int stock = 0;
+            stock = 0;
             foreach (var camisa in tienda.Camisas)
             {
                 if(cbMangaCorta.Checked == true)
@@ -86,11 +90,12 @@ namespace Quark
             }
 
             lbCantidadStock.Text = stock.ToString();
+            seleccionada = RopaSeleccionada.CamisaMangaCorta;
         }
 
         private void rbPantalon_CheckedChanged(object sender, EventArgs e)
         {
-            int stock = 0;
+            stock = 0;
             foreach (var pantalon in tienda.Pantalones)
             {
                 stock += pantalon.Stock;
@@ -101,7 +106,8 @@ namespace Quark
 
         private void cbChupin_CheckedChanged(object sender, EventArgs e)
         {
-            int stock = 0;
+            cbComunes.Checked = false;
+            stock = 0;
             foreach (var pantalon in tienda.Pantalones)
             {
                 if(pantalon.tipoPantalon == "Chupin")
@@ -109,17 +115,27 @@ namespace Quark
             }
 
             lbCantidadStock.Text = stock.ToString();
+            seleccionada = RopaSeleccionada.PantalonChupin;
+
         }
 
         private void rbStandar_CheckedChanged(object sender, EventArgs e)
         {
+            if (rbStandar.Checked)
+            {
+                precioUnitario = controller.GetPrecioUnitario(seleccionada, "standar", tienda.Camisas, tienda.Pantalones);
+            }
+            else
+                precioUnitario = controller.GetPrecioUnitario(seleccionada, "premiun", tienda.Camisas, tienda.Pantalones);
 
+
+            txtPrecioUnitario.Text = precioUnitario.ToString();
         }
 
         private void cbComunes_CheckedChanged(object sender, EventArgs e)
         {
             cbChupin.Checked = false;
-            int stock = 0;
+            stock = 0;
             foreach (var pantalon in tienda.Pantalones)
             {
                 if (pantalon.tipoPantalon == "Comunes")
@@ -127,6 +143,51 @@ namespace Quark
             }
 
             lbCantidadStock.Text = stock.ToString();
+            seleccionada = RopaSeleccionada.PantalonComun;
+
+        }
+
+        private void rbPremium_CheckedChanged(object sender, EventArgs e){        }
+
+        private void btCotizar_Click(object sender, EventArgs e)
+        {
+
+            if(txtCantidad.Text != "")
+            {
+                int cantidad = Convert.ToInt32(txtCantidad.Text);
+
+                if (stock < cantidad)
+                {
+                    MessageBox.Show("No puede cotizar un numero de prendas mayor al stcok existente");
+                    txtCantidad.Text = "";
+
+                }
+                else
+                {
+                    var cotizacion = controller.Cotizar(seleccionada, precioUnitario, cantidad);
+                    lbTotalCotiza.Text = cotizacion.ToString();
+                }
+            }
+            else
+            {
+                MessageBox.Show("no se puede cotizar sin ingresar la cantidad");
+            }  
+
+
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                e.Handled = true;
+                return;
+
+            }
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

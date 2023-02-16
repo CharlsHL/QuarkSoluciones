@@ -38,6 +38,7 @@
             this.lbCodTXT = new System.Windows.Forms.Label();
             this.lblHistorialCotizacion = new System.Windows.Forms.LinkLabel();
             this.gbPrenda = new System.Windows.Forms.GroupBox();
+            this.cbComunes = new System.Windows.Forms.CheckBox();
             this.lbSepara = new System.Windows.Forms.Label();
             this.cbChupin = new System.Windows.Forms.CheckBox();
             this.cbCuelloMao = new System.Windows.Forms.CheckBox();
@@ -55,12 +56,11 @@
             this.rbPremium = new System.Windows.Forms.RadioButton();
             this.rbStandar = new System.Windows.Forms.RadioButton();
             this.gbPrecio = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.lbTxtCantidad = new System.Windows.Forms.Label();
             this.lbSimboloPeso1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPrecioUnitario = new System.Windows.Forms.TextBox();
             this.lbCodigoVendedor = new System.Windows.Forms.Label();
-            this.cbComunes = new System.Windows.Forms.CheckBox();
             this.pnExit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMinim)).BeginInit();
@@ -177,6 +177,17 @@
             this.gbPrenda.TabStop = false;
             this.gbPrenda.Text = "Prendas";
             // 
+            // cbComunes
+            // 
+            this.cbComunes.AutoSize = true;
+            this.cbComunes.Location = new System.Drawing.Point(523, 80);
+            this.cbComunes.Name = "cbComunes";
+            this.cbComunes.Size = new System.Drawing.Size(77, 19);
+            this.cbComunes.TabIndex = 11;
+            this.cbComunes.Text = "Comunes";
+            this.cbComunes.UseVisualStyleBackColor = true;
+            this.cbComunes.CheckedChanged += new System.EventHandler(this.cbComunes_CheckedChanged);
+            // 
             // lbSepara
             // 
             this.lbSepara.AutoSize = true;
@@ -282,6 +293,7 @@
             this.btCotizar.TabIndex = 7;
             this.btCotizar.Text = "Cotizar";
             this.btCotizar.UseVisualStyleBackColor = true;
+            this.btCotizar.Click += new System.EventHandler(this.btCotizar_Click);
             // 
             // label2
             // 
@@ -331,6 +343,7 @@
             this.rbPremium.TabStop = true;
             this.rbPremium.Text = "Premium";
             this.rbPremium.UseVisualStyleBackColor = true;
+            this.rbPremium.CheckedChanged += new System.EventHandler(this.rbPremium_CheckedChanged);
             // 
             // rbStandar
             // 
@@ -347,10 +360,10 @@
             // gbPrecio
             // 
             this.gbPrecio.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.gbPrecio.Controls.Add(this.textBox2);
+            this.gbPrecio.Controls.Add(this.txtCantidad);
             this.gbPrecio.Controls.Add(this.lbTxtCantidad);
             this.gbPrecio.Controls.Add(this.lbSimboloPeso1);
-            this.gbPrecio.Controls.Add(this.textBox1);
+            this.gbPrecio.Controls.Add(this.txtPrecioUnitario);
             this.gbPrecio.Location = new System.Drawing.Point(431, 347);
             this.gbPrecio.Name = "gbPrecio";
             this.gbPrecio.Size = new System.Drawing.Size(330, 125);
@@ -358,12 +371,14 @@
             this.gbPrecio.TabStop = false;
             this.gbPrecio.Text = "Precio unitario y cantidad";
             // 
-            // textBox2
+            // txtCantidad
             // 
-            this.textBox2.Location = new System.Drawing.Point(222, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 3;
+            this.txtCantidad.Location = new System.Drawing.Point(222, 52);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(100, 23);
+            this.txtCantidad.TabIndex = 3;
+            this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // lbTxtCantidad
             // 
@@ -383,12 +398,12 @@
             this.lbSimboloPeso1.TabIndex = 1;
             this.lbSimboloPeso1.Text = "$";
             // 
-            // textBox1
+            // txtPrecioUnitario
             // 
-            this.textBox1.Location = new System.Drawing.Point(28, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 0;
+            this.txtPrecioUnitario.Location = new System.Drawing.Point(28, 52);
+            this.txtPrecioUnitario.Name = "txtPrecioUnitario";
+            this.txtPrecioUnitario.Size = new System.Drawing.Size(100, 23);
+            this.txtPrecioUnitario.TabIndex = 0;
             // 
             // lbCodigoVendedor
             // 
@@ -398,17 +413,6 @@
             this.lbCodigoVendedor.Size = new System.Drawing.Size(0, 15);
             this.lbCodigoVendedor.TabIndex = 13;
             this.lbCodigoVendedor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // cbComunes
-            // 
-            this.cbComunes.AutoSize = true;
-            this.cbComunes.Location = new System.Drawing.Point(523, 80);
-            this.cbComunes.Name = "cbComunes";
-            this.cbComunes.Size = new System.Drawing.Size(77, 19);
-            this.cbComunes.TabIndex = 11;
-            this.cbComunes.Text = "Comunes";
-            this.cbComunes.UseVisualStyleBackColor = true;
-            this.cbComunes.CheckedChanged += new System.EventHandler(this.cbComunes_CheckedChanged);
             // 
             // Main
             // 
@@ -480,10 +484,10 @@
         private Label lbSepara;
         private RadioButton rbPremium;
         private RadioButton rbStandar;
-        private TextBox textBox2;
+        private TextBox txtCantidad;
         private Label lbTxtCantidad;
         private Label lbSimboloPeso1;
-        private TextBox textBox1;
+        private TextBox txtPrecioUnitario;
         private Label lbCodigoVendedor;
         private CheckBox cbComunes;
     }
