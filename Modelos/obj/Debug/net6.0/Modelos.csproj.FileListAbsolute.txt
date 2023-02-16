@@ -1,0 +1,12 @@
+E:\repositorios\Q\Modelos\bin\Debug\net6.0\Modelos.deps.json
+E:\repositorios\Q\Modelos\bin\Debug\net6.0\Modelos.dll
+E:\repositorios\Q\Modelos\bin\Debug\net6.0\Modelos.pdb
+E:\repositorios\Q\Modelos\obj\Debug\net6.0\Modelos.csproj.AssemblyReference.cache
+E:\repositorios\Q\Modelos\obj\Debug\net6.0\Modelos.GeneratedMSBuildEditorConfig.editorconfig
+E:\repositorios\Q\Modelos\obj\Debug\net6.0\Modelos.AssemblyInfoInputs.cache
+E:\repositorios\Q\Modelos\obj\Debug\net6.0\Modelos.AssemblyInfo.cs
+E:\repositorios\Q\Modelos\obj\Debug\net6.0\Modelos.csproj.CoreCompileInputs.cache
+E:\repositorios\Q\Modelos\obj\Debug\net6.0\Modelos.dll
+E:\repositorios\Q\Modelos\obj\Debug\net6.0\refint\Modelos.dll
+E:\repositorios\Q\Modelos\obj\Debug\net6.0\Modelos.pdb
+E:\repositorios\Q\Modelos\obj\Debug\net6.0\ref\Modelos.dll

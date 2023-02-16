@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Quark/1.0.0": {
+        "dependencies": {
+          "Controladores": "1.0.0"
+        },
+        "runtime": {
+          "Quark.dll": {}
+        }
+      },
+      "Controladores/1.0.0": {
+        "dependencies": {
+          "Modelos": "1.0.0"
+        },
+        "runtime": {
+          "Controladores.dll": {}
+        }
+      },
+      "Modelos/1.0.0": {
+        "runtime": {
+          "Modelos.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Quark/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Controladores/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Modelos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

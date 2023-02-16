@@ -1,0 +1,15 @@
+E:\repositorios\Q\Controladores\bin\Debug\net6.0\Controladores.deps.json
+E:\repositorios\Q\Controladores\bin\Debug\net6.0\Controladores.dll
+E:\repositorios\Q\Controladores\bin\Debug\net6.0\Controladores.pdb
+E:\repositorios\Q\Controladores\obj\Debug\net6.0\Controladores.csproj.AssemblyReference.cache
+E:\repositorios\Q\Controladores\obj\Debug\net6.0\Controladores.GeneratedMSBuildEditorConfig.editorconfig
+E:\repositorios\Q\Controladores\obj\Debug\net6.0\Controladores.AssemblyInfoInputs.cache
+E:\repositorios\Q\Controladores\obj\Debug\net6.0\Controladores.AssemblyInfo.cs
+E:\repositorios\Q\Controladores\obj\Debug\net6.0\Controladores.csproj.CoreCompileInputs.cache
+E:\repositorios\Q\Controladores\obj\Debug\net6.0\Controladores.dll
+E:\repositorios\Q\Controladores\obj\Debug\net6.0\refint\Controladores.dll
+E:\repositorios\Q\Controladores\obj\Debug\net6.0\Controladores.pdb
+E:\repositorios\Q\Controladores\obj\Debug\net6.0\ref\Controladores.dll
+E:\repositorios\Q\Controladores\bin\Debug\net6.0\Modelos.dll
+E:\repositorios\Q\Controladores\bin\Debug\net6.0\Modelos.pdb
+E:\repositorios\Q\Controladores\obj\Debug\net6.0\Controladores.csproj.CopyComplete
